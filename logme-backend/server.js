@@ -1,4 +1,6 @@
 const express = require('express');
+const router = require('./routes/api');
+require('dotenv').config();
 
 const app = express();
 
@@ -10,9 +12,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-	res.send('Welcome to Express');
-});
+app.use('/', router);
 
 app.listen(port, () => {
 	console.log(`Express listening on port:${port}`);

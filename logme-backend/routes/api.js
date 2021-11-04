@@ -1,31 +1,54 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const fitnessModel = require('../models/data');
 const router = express.Router();
-const Fitness = require('../models/data')
+
+const connection = mongoose.connect(
+	'mongodb+srv://admin:admin123@cluster0.i4qlk.mongodb.net/Data?retryWrites=true&w=majority'
+);
+
+mongoose.Promise = global.Promise;
+
+router.get('/', (req, res, next) => {
+	res.status(200).send('Welcome to the home page');
+	next;
+});
 
 router.get('/data', (req, res, next) => {
 	// retrieve all data
+	fitnessModel.find({}).then((data) => {
+		res.send(data);
+	});
 });
 
-router.get('/data/:username/:id', (req, res, next) => {
+router.get('/data/:username/:type', (req, res, next) => {
 	// retrieve a set of data based on the type of data to return (fitness, finance, health, custom, etc...)
-    Fitness.find({ 
-            username: (req.params.username ? req.params.username : ''),
-            id: (req.params.id ? req.params.id : '')
-    }).then((data) => res.json(data))
 });
 
-router.post('/data/:username', (req, res, next) => {
+const dataValidation = (data) => {
+    
+}
+
+router.post('/data', (req, res, next) => {
 	// add a set of data to the username given
+	fitnessModel.create(req.body, (err, data) => {
+		if (err) {
+			res.status(505).send(err);
+            next;
+		} else {
+			res.status(200).send('Data has been successfully added into the database for the user.');
+		}
+	});
 });
 
-router.delete('/data/:username/:id', (req, res, next) => {
-    // remove a set of data from a particular user
-})
+router.delete('/data/:username/:type', (req, res, next) => {
+	// remove a set of data from a particular user
+});
 
 router.post('/custom/:username', (req, res, next) => {
-    // add a set of data to the username given after the ML model has labelled the set of data
-})
+	// add a set of data to the username given after the ML model has labelled the set of data
+});
 
-// ROUTES FOR USER AUTHENTICATION AND AUTHORIZATION 
+// ROUTES FOR USER AUTHENTICATION AND AUTHORIZATION
 
 module.exports = router;
