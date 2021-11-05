@@ -19,33 +19,37 @@ router.get('/data', (req, res, next) => {
 	fitnessModel.find({}).then((data) => {
 		res.send(data);
 	});
-});
 
-router.get('/data/:username/:type', (req, res, next) => {
-	// retrieve a set of data based on the type of data to return (fitness, finance, health, custom, etc...)
+	// if username and type provided => retrieve a set of data based on the type of data to return (fitness, finance, health, custom, etc...)
 });
-
-const dataValidation = (data) => {
-    
-}
 
 router.post('/data', (req, res, next) => {
 	// add a set of data to the username given
 	fitnessModel.create(req.body, (err, data) => {
 		if (err) {
 			res.status(505).send(err);
-            next;
+			next;
 		} else {
 			res.status(200).send('Data has been successfully added into the database for the user.');
 		}
 	});
 });
 
-router.delete('/data/:username/:type', (req, res, next) => {
+router.delete('/data', (req, res, next) => {
 	// remove a set of data from a particular user
+	if (req.body.type === 'fitness') {
+		fitnessModel.deleteOne({ "username": req.body.username }, (err, data) => {
+			if (err) {
+				res.status(505).send(err);
+				next;
+			} else {
+				res.status(200).send('Data has been successfully deleted from the database for the user.');
+			}
+		});
+	}
 });
 
-router.post('/custom/:username', (req, res, next) => {
+router.post('/custom', (req, res, next) => {
 	// add a set of data to the username given after the ML model has labelled the set of data
 });
 
