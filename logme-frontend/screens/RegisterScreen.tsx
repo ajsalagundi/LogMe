@@ -5,15 +5,14 @@ import { useFonts } from 'expo-font';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { CSS_CONSTS, HEIGHT, WIDTH } from '../constants';
-import ErrorMesssageModal from '../components/ErrorMesssageModal';
 
-const LoginScreen = (props: any) => {
-
+const RegisterScreen = (props: any) => {
 	let [ fonts ] = useFonts({
 		'Reem-Kufi': require('../assets/fonts/ReemKufi-Regular.ttf')
 	});
 	const [ password, setpassword ] = useState('');
 	const [ username, setusername ] = useState('');
+	const [ email, setemail ] = useState('');
 
 	if (!fonts) {
 		return <AppLoading />;
@@ -51,19 +50,28 @@ const LoginScreen = (props: any) => {
 							placeholder={'Password'}
 						/>
 					</View>
+					<View style={styles.emailInput}>
+						<MaterialCommunityIcons
+							name="email-outline"
+							size={24}
+							color="black"
+							style={styles.icon}
+						/>
+						<TextInput
+							style={styles.input}
+							onChangeText={(e) => setemail(e)}
+							value={email}
+							autoCapitalize="none"
+							autoCorrect={false}
+							placeholder={'Email'}
+						/>
+					</View>
 				</View>
-				<TouchableOpacity
-					style={styles.login}
-					onPress={() => {
-					}}
-				>
-					<Text style={styles.loginText}>
-						Login
+				<TouchableOpacity style={styles.login}>
+					<Text style={styles.loginText} onPress={() => props.navigation.navigate('Login')}>
+						Register
 					</Text>
 				</TouchableOpacity>
-				<Text style={styles.signupText} onPress={() => props.navigation.navigate('Register')}>
-					Don't have an account? Sign up now!
-				</Text>
 			</View>
 		);
 	}
@@ -79,13 +87,13 @@ const styles = StyleSheet.create({
 	title: {
 		color: CSS_CONSTS.PRIMARY_COLOR,
 		fontSize: 48,
-		marginTop: '50%',
+		marginTop: '40%',
 		fontFamily: 'Reem-Kufi'
 	},
 	userInputs: {
 		marginTop: '30%',
 		width: '80%',
-		height: '20%',
+		height: '30%',
 		justifyContent: 'center'
 	},
 	icon: {
@@ -101,6 +109,14 @@ const styles = StyleSheet.create({
 		marginBottom: 20
 	},
 	passwordInput: {
+		flex: 1,
+		flexDirection: 'row',
+		borderColor: CSS_CONSTS.PRIMARY_COLOR,
+		borderWidth: 1,
+		borderRadius: 5,
+		marginBottom: 20
+	},
+	emailInput: {
 		flex: 1,
 		flexDirection: 'row',
 		borderColor: CSS_CONSTS.PRIMARY_COLOR,
@@ -137,4 +153,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default LoginScreen;
+export default RegisterScreen;
