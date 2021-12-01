@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "logme-frontend",
-    "slug": "logme-frontend",
+    "name": "logme",
+    "slug": "logme",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
