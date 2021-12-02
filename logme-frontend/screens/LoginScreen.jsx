@@ -15,7 +15,7 @@ const LoginScreen = (props) => {
 	const [ username, setusername ] = useState('');
 
 	if (!fonts) {
-		return;
+		return null;
 	} else {
 		return (
 			<View style={styles.loginScreen}>

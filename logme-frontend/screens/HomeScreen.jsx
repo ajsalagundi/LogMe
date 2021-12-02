@@ -7,8 +7,9 @@ const HomeScreen = (props) => {
 	let [ fonts ] = useFonts({
 		'Reem-Kufi': require('../assets/fonts/ReemKufi-Regular.ttf')
 	});
+    
 	if (!fonts) {
-		return;
+		return null;
 	} else {
 		return (
 			<View style={styles.homeScreen}>
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
 		color: CSS_CONSTS.PRIMARY_COLOR,
 		fontSize: 48,
 		marginTop: '80%',
-		fontFamily: 'ReemKufi_400Regular'
+		fontFamily: 'Reem-Kufi'
 	},
 	authContent: {
 		flex: 1,
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
 		fontSize: 28,
 		textAlign: 'center',
 		color: CSS_CONSTS.PRIMARY_COLOR,
-		fontFamily: 'ReemKufi_400Regular'
+		fontFamily: 'Reem-Kufi'
 	},
 	register: {
 		flex: 1,
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
 		fontSize: 28,
 		textAlign: 'center',
 		color: CSS_CONSTS.PRIMARY_COLOR,
-		fontFamily: 'ReemKufi_400Regular'
+		fontFamily: 'Reem-Kufi'
 	}
 });
 

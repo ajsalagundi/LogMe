@@ -14,7 +14,7 @@ const RegisterScreen = (props) => {
 	const [ email, setemail ] = useState('');
 
 	if (!fonts) {
-		return 
+		return null;
 	} else {
 		return (
 			<View style={styles.loginScreen}>

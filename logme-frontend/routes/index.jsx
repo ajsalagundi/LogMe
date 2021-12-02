@@ -41,4 +41,4 @@ const index = createAppContainer(
     )
 )
 
-export default index
+export default createAppContainer(index)
