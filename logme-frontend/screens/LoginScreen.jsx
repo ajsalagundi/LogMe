@@ -7,7 +7,6 @@ import { CSS_CONSTS, HEIGHT, WIDTH } from '../constants';
 import ErrorMesssageModal from '../components/ErrorMesssageModal';
 
 const LoginScreen = (props) => {
-
 	let [ fonts ] = useFonts({
 		'Reem-Kufi': require('../assets/fonts/ReemKufi-Regular.ttf')
 	});
@@ -51,12 +50,8 @@ const LoginScreen = (props) => {
 						/>
 					</View>
 				</View>
-				<TouchableOpacity
-					style={styles.login}
-					onPress={() => {
-					}}
-				>
-					<Text style={styles.loginText}>
+				<TouchableOpacity style={styles.login}>
+					<Text style={styles.loginText} onPress={() => props.navigation.navigate('Dashboard')}>
 						Login
 					</Text>
 				</TouchableOpacity>

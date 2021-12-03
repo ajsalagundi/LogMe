@@ -11,6 +11,7 @@ import DashboardScreen from './screens/DashboardScreen';
 
 const Stack = createNativeStackNavigator();
 // import Navigation from './routes/index';
+import DataEntryForm from './screens/DataEntryForm';
 
 export default function App() {
 	return (
@@ -22,6 +23,7 @@ export default function App() {
 					<Stack.Screen name="Login" component={LoginScreen} />
 					<Stack.Screen name="Register" component={RegisterScreen} />
 					<Stack.Screen name="Dashboard" component={DashboardScreen} />
+					<Stack.Screen name="DataForm" component={DataEntryForm} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</Provider>

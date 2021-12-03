@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
 		height: HEIGHT,
 		width: WIDTH,
 		flex: 1,
-		alignItems: 'center'
+		alignItems: 'center',
+        backgroundColor: CSS_CONSTS.PRIMARY_COLOR,
 	},
 	title: {
-		color: CSS_CONSTS.PRIMARY_COLOR,
+		color: CSS_CONSTS.TEXT_COLOR,
 		fontSize: 48,
 		marginTop: '80%',
 		fontFamily: 'Reem-Kufi'
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
 		height: 50,
 		fontSize: 28,
 		textAlign: 'center',
-		color: CSS_CONSTS.PRIMARY_COLOR,
+		color: CSS_CONSTS.TEXT_COLOR,
 		fontFamily: 'Reem-Kufi'
 	},
 	register: {
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
 		height: 50,
 		fontSize: 28,
 		textAlign: 'center',
-		color: CSS_CONSTS.PRIMARY_COLOR,
+		color: CSS_CONSTS.TEXT_COLOR,
 		fontFamily: 'Reem-Kufi'
 	}
 });
