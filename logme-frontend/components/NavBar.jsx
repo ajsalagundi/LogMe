@@ -3,19 +3,22 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { CSS_CONSTS, HEIGHT, WIDTH } from '../constants';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const handleLogOut = () => {
 	return null;
-}
+};
 
 const NavBar = (props) => {
+	const navigation = useNavigation();
+
 	return (
 		<View style={styles.navBarContainer}>
 			<View style={styles.navBar}>
 				<TouchableOpacity style={styles.icon} onPress={handleLogOut}>
 					<Feather name="log-out" size={24} color="white" />
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.icon} onPress={() => props.navigation.navigate("DataForm")}>
+				<TouchableOpacity style={styles.icon} onPress={() => navigation.navigate('DataForm')}>
 					<MaterialIcons name="add-box" size={24} color="white" />
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.icon}>

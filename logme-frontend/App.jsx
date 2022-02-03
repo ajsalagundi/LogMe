@@ -8,15 +8,13 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import DashboardScreen from './screens/DashboardScreen';
+import DataEntryForm from './screens/DataEntryForm';
 
 const Stack = createNativeStackNavigator();
-// import Navigation from './routes/index';
-import DataEntryForm from './screens/DataEntryForm';
 
 export default function App() {
 	return (
 		<Provider store={store}>
-			{/* <Navigation /> */}
 			<NavigationContainer>
 				<Stack.Navigator screenOptions={{ headerShown: false }}>
 					<Stack.Screen name="Home" component={HomeScreen} />
